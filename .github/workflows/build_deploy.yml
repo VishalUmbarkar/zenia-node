@@ -4,7 +4,7 @@ name: CI
 
 env:
   AWS_REGION: ap-south-1  
-  ECR_REPOSITORY: 123456789012.dkr.ecr.ap-south-1.amazonaws.com/zenia
+  ECR_REPOSITORY: 148761667975.dkr.ecr.ap-south-1.amazonaws.com/zenia
   ECS_CLUSTER: ecs-cluster  #
   ECS_SERVICE: microservice-service  
 
