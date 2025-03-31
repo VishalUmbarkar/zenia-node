@@ -24,6 +24,9 @@ jobs:
   deploy:
     name: Build, Push & Deploy
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # ✅ Required for OIDC authentication
+      contents: read
 
     steps:
       - name: Checkout Repository
