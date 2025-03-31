@@ -38,6 +38,10 @@ jobs:
           role-to-assume: arn:aws:iam::148761667975:role/Github-Deployer
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Check AWS Identity
+        run: aws sts get-caller-identity
+
+
       - name: Login to Amazon ECR
         id: login-ecr
         run: |
