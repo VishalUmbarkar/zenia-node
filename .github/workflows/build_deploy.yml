@@ -40,16 +40,16 @@ jobs:
         id: login-ecr
         run: |
           aws ecr get-login-password --region ${{ env.AWS_REGION }} | \
-          docker login --username AWS --password-stdin ${{ secrets.ECR_REPOSITORY }}
+          docker login --username AWS --password-stdin ${{ env.ECR_REPOSITORY }}
 
       - name: Build Docker Image
         run: |
           docker build -t nodeapp:latest .
-          docker tag nodeapp:latest ${{ secrets.ECR_REPOSITORY }}:nodeapp
+          docker tag nodeapp:latest ${{ env.ECR_REPOSITORY }}:nodeapp
 
       - name: Push Image to ECR
         run: |
-          docker push ${{ secrets.ECR_REPOSITORY }}:nodeapp
+          docker push ${{ env.ECR_REPOSITORY }}:nodeapp
 
       - name: Deploy Latest Tag
         run: |
